@@ -1,0 +1,253 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    <style>
+        .SiteHeader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+            max-width: 900px;
+            
+            margin-left:27vw;
+           
+            margin-top: 35vh;
+            text-align:center;
+            color:#fff;
+            font-size:4rem;
+        }
+        
+
+        .about {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .about .content-box {
+                min-width: 50%;
+                width: 50%;
+                text-align: end;
+                padding-right: 40px;
+            }
+
+        .aboutImg {
+            max-height: 50vh;
+            border: 5px solid darkgray;
+        }
+
+        .titleText {
+            font-size: 2em;
+            color: white;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .text {
+            font-size: 1em;
+            color: #fff;
+        }
+
+        .about .imgBx {
+            position: relative;
+            min-width: 50%;
+            width: 50%;
+            margin-top: 50px;
+            min-height: 500px;
+        }
+
+        .fitbg1 {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .banner2 {
+            position: relative;
+            width: 100%;
+            margin-top:5vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .banner2::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                min-height: 20vh;
+                height: auto;
+                z-index: 1;
+                background: linear-gradient(to top,#111,transparent);
+            }
+
+            .banner2::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                min-height: 20vh;
+                height: auto;
+                z-index: 1;
+                background: linear-gradient(to bottom,#111,transparent);
+            }
+
+        .fitbg2 {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-height: 100vw;
+            opacity: 0.4;
+        }
+
+        .destination {
+            text-align: center;
+        }
+
+            .destination .content {
+                text-align: center;
+            }
+
+            .destination .destinationList {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                margin-top: 40px;
+            }
+
+                .destination .destinationList .box {
+                    position: relative;
+                    max-width: 300px;
+                    height: 480px;
+                    background: #191919;
+                    transition: 0.5s;
+                    margin: 10px;
+                    
+                }
+
+                .destination .destinationList:hover .box {
+                    opacity: 0.2;
+                }
+
+                .destination .destinationList .box:hover {
+                    opacity: 1;
+                   
+                    border-radius:10px;
+                }
+
+                .destination .destinationList .box .imgBx {
+                    position: relative;
+                    width: 100%;
+                    height: 400px;
+                }
+
+                .destination .destinationList .box .content {
+                    width: 100%;
+                    height: 80px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                    .destination .destinationList .box .content h2 {
+                        color: #fff;
+                        font-weight: 500;
+                        line-height: 1.2em;
+                    }
+
+                        .destination .destinationList .box .content h2 span {
+                            font-size: 0.8em;
+                            font-weight: 300;
+                            opacity: 0.5;
+
+                        }
+
+        .fitbg3 {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+        }
+        .btn{
+            background-color:#fff;
+            text-align:center;
+
+        }
+        .btn:hover{
+        background-color:brown;
+        color:#fff;
+        transition: all 0.7s;
+        }
+    </style>
+}
+
+<div>
+
+    <div class="SiteHeader">
+
+        <h1 style="font-size:3rem;">Welcome</h1>
+        <p class="text-white" style="font-size:25px; border-bottom:2px solid yellow; " >Explore New Places With Some Style....</p>
+    </div>
+
+    <div class="about">
+        <div class="content-box">
+            <h2 class="titleText">Feel the beauty of the world</h2>
+            <p class="text">Nature, in the broadest sense, is the natural, physical, material world or universe. "Nature" can refer to the phenomena of the physical world, and also to life in general. The study of nature is a large, if not the only, part of science. Although humans are part of nature, human activity is often understood as a separate category from other natural phenomena</p>
+            <a href="#">Populer dastinations</a>
+
+        </div>
+        <div class="imgBx">  <img class="fitbg1" src="~/images/verticalimg1.jpg" /></div>
+
+    </div>
+    <section class="banner2">
+        <img src="~/images/img1.jpg" class="fitbg2" />
+    </section>
+
+
+    <section class="destination">
+        <div class="content">
+            <h2 class="titleText">Most popular travel destnations in the world</h2>
+            <p class="text">Nature, in the broadest sense, is the natural, physical, material world or universe. "Nature" can refer to the phenomena of the physical world, and also to life in general. The study of nature is a large, if not the only, part of science. Although humans are part of nature, human activity is often understood as a separate category from other natural phenomena</p>
+        </div>
+        <div class="destinationList">
+            <div class="box">
+                <div class="imgBx">
+                    <img src="~/images/verticalimg1.jpg" class="fitbg3" />
+                </div>
+                <div class="content">
+                    <h2>destination One<br /><span>Country Name</span></h2>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imgBx">
+                    <img src="~/images/verticalimg2.jpg" class="fitbg3" />
+                </div>
+                <div class="content">
+                    <h2>destination two<br /><span>Country Name</span></h2>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imgBx">
+                    <img src="~/images/verticalimg3.jpg" class="fitbg3" />
+                </div>
+                <div class="content">
+                    <h2>destination Three<br /><span>Country Name</span></h2>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">View More</a>
+    </section>
+</div>
