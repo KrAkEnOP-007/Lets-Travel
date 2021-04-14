@@ -1,0 +1,110 @@
+﻿@model Lets_Travel.Models.GetFlights
+
+@{
+    ViewData["Title"] = "Flights";
+    <style>
+        body{
+          background-color:white;
+        }
+        header{
+            position:relative;
+            background-color:rgba(0,0,0,0.7);
+        }
+        .banner {
+            position: relative;
+            max-width: 80%;
+            max-height: 50%;
+            margin: auto;
+            margin-top: 10vh;
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        .Flightheader{
+            position:relative;
+           
+            margin:auto;
+            height:10vh;
+            display:flex;
+            justify-content:center;
+            
+            
+        }
+        .Flightheader h1{
+            color:darkgreen;
+            text-align:center;
+            text-transform:uppercase;
+            font-size:2rem;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+       .flightFind{
+        position:relative;
+        width:90%;
+        min-height:40vh;
+        margin:auto;
+        display:flex;
+        justify-content:center;
+        
+
+       }
+       .mainTable{
+        border:1px solid;
+        margin:10px;
+        padding:10px;
+       }
+       .mainTable td{
+        height:20px;
+        padding:10px;
+        border:1px solid black;
+
+       }
+       .FlightBody{
+            max-width:80%;
+            margin:auto;          
+       }
+    </style>
+}
+
+    
+        <div class="banner">
+           
+            <div class="FlightBody">
+                <div class="Flightheader">
+
+                    <h1>find The Best flights At The Best Price</h1>
+
+                </div>
+                <section class="flightFind">
+                    <form asp-action="Flights" class="Findflight">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <table class="table" >
+
+                            <tr>
+                                <td><label asp-for="FlightFrom" class="form-control"></label></td>
+                                <td></td>
+                                <td><label asp-for="FlightTo" class="form-control"></label></td>
+                            </tr>
+                            <tr>
+                                <td><input class="form-control" asp-for="FlightFrom" />
+                                    <span asp-validation-for="FlightFrom" class="text-danger"></span>
+                                </td>
+                                <td></td>
+                                <td><input class="form-control" asp-for="FlightTo" />
+                                    <span asp-validation-for="FlightTo" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Date</td>
+                                <td><input asp-for="OnDate" />
+                                    <span asp-validation-for="OnDate" class="text-danger"></span>
+                                    </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><input type="submit" class="btn btn-primary" value="Search" /></td>
+                            </tr>
+                        </table>
+
+                    </form>
+                </section>
+            </div>
+        </div>

@@ -1,0 +1,96 @@
+﻿@model Lets_Travel.Models.GetHotels
+@{
+    ViewData["Title"] = "Hotels";
+    <style>
+        body {
+            background-color: white;
+        }
+        header {
+            position: relative;
+            background-color: rgba(0,0,0,0.7);
+        }
+        .HotelHeader{
+            display:flex;
+            justify-content:center;
+        }
+        .HotelsMain{
+            position:relative;
+            margin:0;
+            padding:0;
+
+        }
+        .HotelsMain .HotelSearch {
+            position:relative;
+            min-width:80%;
+            margin:auto;
+        }
+        .HotelSearch{
+            position:relative;
+            background-color:rgba(0,0,0,0.2);
+        }
+        .SearchData table{
+            width:80%;
+            margin:auto;
+            
+        }
+        .SearchData table td {
+           width:20%;
+           
+        }
+    </style>
+}
+
+
+<section class="HotelsMain">
+    <div class="HotelSearch">
+        <div class="HotelHeader">
+            <h1>Search Hotels</h1>
+        </div>
+        <div class="SearchData">
+            <form asp-action="Hotels" >
+                <div asp-validation-summary="ModelOnly"></div>
+                <table class="Datatable table table-borderless table-active table-dark border-primary">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="">Select City</td>
+                        <td class="col-3"> <input type="text" asp-for="City" class="form-control" /> 
+                                            <span asp-validation-for="City"></span>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+                        <td class="">Total Peoples</td>
+                        <td class="col-3"><input type="number" asp-for="TotalPersons" class="form-control" />
+                                          <span asp-validation-for="TotalPersons" class="text-danger"></span>  
+                                </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="">Check Out</td>
+                        <td><input class="form-control" asp-for="CheckIn" />
+                            <span asp-validation-for="CheckIn" class="text-danger"></span>
+                                </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="">Check In</td>
+                        <td><input class="form-control" asp-for="CheckOut" />
+                            <span asp-validation-for="CheckOut" class="text-danger"></span>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><input type="submit" class="btn btn-primary" value="Find Hotels" id="findHotels" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</section>

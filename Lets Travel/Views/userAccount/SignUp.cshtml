@@ -1,0 +1,59 @@
+﻿@model Lets_Travel.Models.SignUp 
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_User.cshtml";
+    <style>
+        .Signupbody{
+            position:relative;
+            padding:5%;
+        }
+    </style>
+}
+
+<div class="Signupbody">
+    <form asp-action="SignUp">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <table class="table table-borderless">
+            <tr>
+                <td> <label asp-for="FirstName" class="control-label"></label></td>
+                <td>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>     <label asp-for="LastName" class="control-label"></label> </td>
+                <td>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>    <label asp-for="Email" class="control-label"></label></td>
+                <td>
+
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>    <label asp-for="Password" class="control-label"></label></td>
+                <td>
+
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>   <label asp-for="ConfirmPassword" class="control-label"></label></td>
+                <td>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" class="btn btn-primary" value="Register" /></td>
+            </tr>
+        </table>
+    </form>
+</div>

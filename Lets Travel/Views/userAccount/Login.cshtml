@@ -1,0 +1,35 @@
+﻿@model Lets_Travel.Models.LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_User.cshtml";
+    <style>
+        .LoginData{
+            position:relative;
+            width:100%;
+            padding:5%;
+        }
+    </style>
+}
+
+<div class="LoginData">
+    <form class="form" asp-action="Login">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <table class="table table-borderless">
+            <tr>
+                <td><label asp-for="Email" class="control-label"></label></td>
+                <td><input type="text" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" class="btn btn-secondary" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
