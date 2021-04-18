@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Lets_Travel.Models.Flights>
+
+@{
+    ViewData["Title"] = "GetFlights";
+    <style>
+        header {
+            position: relative;
+            background-color: rgba(0,0,0,0.7);
+        }
+    </style>
+}
+
+<h1>GetFlights</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ORDINARYprice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BUSINESSprice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ORDINARYprice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BUSINESSprice)
+            </td>
+            <td>
+                <a asp-action="BookFlight" asp-route-id="@item.FlightID">Book</a> |
+              
+            </td>
+        </tr>
+    }
+}
+            else
+            {
+                <tr>
+                    <td>No Data Found</td>
+                </tr>
+            }
+    </tbody>
+</table>

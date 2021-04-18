@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Lets_Travel.Models.Hotel>
+
+@{
+    ViewData["Title"] = "GetHotels";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetHotels</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pincode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hotel_Room_Features)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hotel_Additional_Features)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price_Single_Bed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price_Double_Bed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pic1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pic2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pic3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pic4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pic5)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pincode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel_Room_Features)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel_Additional_Features)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price_Single_Bed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price_Double_Bed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pic1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pic2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pic3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pic4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pic5)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.HotelId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.HotelId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.HotelId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

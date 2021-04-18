@@ -74,7 +74,7 @@
 
                 </div>
                 <section class="flightFind">
-                    <form asp-action="Flights" class="Findflight">
+                    <form asp-action="GetFlights" class="Findflight">
                         <div asp-validation-summary="ModelOnly"></div>
                         <table class="table" >
 
@@ -93,7 +93,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Date</td>
+                                <td><label asp-for="OnDate"></label></td>
                                 <td><input asp-for="OnDate" />
                                     <span asp-validation-for="OnDate" class="text-danger"></span>
                                     </td>
@@ -108,3 +108,4 @@
                 </section>
             </div>
         </div>
+     

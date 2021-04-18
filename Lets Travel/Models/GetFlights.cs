@@ -17,7 +17,7 @@ namespace Lets_Travel.Models
         [Required(ErrorMessage = "Please Select A Date")]
         [Display(Name = "Date")]
         [DataType(DataType.Date)]
-        public DateTime OnDate { get; set; }
+        public string OnDate { get; set; }
 
     }
 }

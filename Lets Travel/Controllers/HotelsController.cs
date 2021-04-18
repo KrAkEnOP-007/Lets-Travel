@@ -1,4 +1,5 @@
-﻿using Lets_Travel.Models;
+﻿using Lets_Travel.Data;
+using Lets_Travel.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,18 +10,26 @@ namespace Lets_Travel.Controllers
 {
     public class HotelsController : Controller
     {
+        private readonly IHotelsRepository repository;
+
+        public HotelsController(IHotelsRepository repository)
+        {
+            this.repository = repository;
+        }
+
         public IActionResult Hotels()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Hotels(GetHotels getHotels)
+        public IActionResult GetHotels(GetHotels getHotels)
         {
             if (ModelState.IsValid)
             {
-                return View("../home/index");
+                var hotels= repository.GetAllHotels();
+                return View();
             }
-            return View();
+            return View(null);
         }
     }
 }
