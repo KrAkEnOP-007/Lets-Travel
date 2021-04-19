@@ -1,0 +1,61 @@
+﻿@model Lets_Travel.Models.Flights
+
+@{
+    ViewData["Title"] = "FlightDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>FlightDetails</h1>
+
+<div>
+    <h4>Flights</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FlightName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightFrom)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FlightFrom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightTo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FlightTo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FlightTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ORDINARYprice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ORDINARYprice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BUSINESSprice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BUSINESSprice)
+        </dd>
+    </dl>
+</div>
+<div>
+    |
+    <a asp-action="Index">Back to List</a>
+</div>

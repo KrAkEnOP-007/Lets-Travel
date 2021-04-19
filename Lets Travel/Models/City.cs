@@ -12,7 +12,7 @@ namespace Lets_Travel.Models
         [Key]
         public long PinCode { get; set; }
         [Required]
-        public string city { get; set; }
+        public string CityName { get; set; }
 
     }
 }

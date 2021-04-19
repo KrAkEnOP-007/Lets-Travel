@@ -17,7 +17,7 @@ namespace Lets_Travel.Data
         }
         public DbSet<Flights> Flights { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
-        public DbSet<City> Cities { get; set; }
+        public DbSet<City> City { get; set; }
 
 
     }

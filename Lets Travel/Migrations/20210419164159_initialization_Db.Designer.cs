@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lets_Travel.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210416163814_initLetsTravelDb")]
-    partial class initLetsTravelDb
+    [Migration("20210419164159_initialization_Db")]
+    partial class initialization_Db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,6 +56,57 @@ namespace Lets_Travel.Migrations
                     b.HasKey("FlightID");
 
                     b.ToTable("Flights");
+                });
+
+            modelBuilder.Entity("Lets_Travel.Models.Hotel", b =>
+                {
+                    b.Property<int>("HotelId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HotelAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HotelName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Hotel_Additional_Features")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Hotel_Room_Features")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pic1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pic2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pic3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pic4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pic5")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Pincode")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Price_Double_Bed")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Price_Single_Bed")
+                        .HasColumnType("int");
+
+                    b.HasKey("HotelId");
+
+                    b.ToTable("Hotels");
                 });
 #pragma warning restore 612, 618
         }

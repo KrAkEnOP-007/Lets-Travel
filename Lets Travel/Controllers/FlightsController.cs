@@ -19,13 +19,14 @@ namespace Lets_Travel.Controllers
         }
         public IActionResult Flights()
         {
-            var cities =appDbContext.Cities.ToList();
-            return View(cities);
+            var cities = appDbContext.City.ToList();
+            ViewBag.cities = cities;
+            return View();
         }
        
         
         [HttpPost]
-        public IActionResult getFlights(GetFlights Flightmodel)
+        public IActionResult GetFlights(GetFlights Flightmodel)
         {
             if (ModelState.IsValid)
             {
@@ -35,6 +36,10 @@ namespace Lets_Travel.Controllers
             }
 
             return View(null);
+        }
+        public IActionResult FlightDetails()
+        {
+            return View();
         }
     }
 }

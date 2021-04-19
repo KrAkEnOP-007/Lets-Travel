@@ -84,12 +84,19 @@
                                 <td><label asp-for="FlightTo" class="form-control"></label></td>
                             </tr>
                             <tr>
-                                <td><input class="form-control" asp-for="FlightFrom" />
+                                <td>
+                                    <select asp-for="FlightFrom" class="form-control" asp-items="@(new SelectList(ViewBag.cities , "CityName","CityName"))">
+
+                                    </select>
+
+
                                     <span asp-validation-for="FlightFrom" class="text-danger"></span>
                                 </td>
                                 <td></td>
-                                <td><input class="form-control" asp-for="FlightTo" />
-                                    <span asp-validation-for="FlightTo" class="text-danger"></span>
+                                <td><select asp-for="FlightTo" class="form-control" asp-items="@(new SelectList(ViewBag.cities ,"CityName","CityName"))">
+                                                    
+                                                    </select>
+                                        <span asp-validation-for="FlightTo" class="text-danger"></span>
                                 </td>
                             </tr>
                             <tr>
