@@ -16,10 +16,13 @@ namespace Lets_Travel.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            
+
         }
 
         public IActionResult Index()
         {
+            //ViewData["user"] = "nisarg";
             return View();
         }
 

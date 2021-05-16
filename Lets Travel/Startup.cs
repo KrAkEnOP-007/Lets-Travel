@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Session;
 
 namespace Lets_Travel
 {
@@ -27,6 +28,11 @@ namespace Lets_Travel
         {
             services.AddScoped<IFlightsRepository, FlightsRepository>();
             services.AddScoped<IHotelsRepository, HotelsRepository>();
+
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
 
             //services.AddDbContext<FlightsDbContext>(options => options.UseSqlServer());
             services.AddDbContextPool<AppDbContext>(options => 
@@ -51,10 +57,12 @@ namespace Lets_Travel
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

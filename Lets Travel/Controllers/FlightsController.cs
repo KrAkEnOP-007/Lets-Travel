@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Lets_Travel.Data;
+using Microsoft.AspNetCore.Http;
+
 namespace Lets_Travel.Controllers
 {
     public class FlightsController : Controller
@@ -21,6 +23,8 @@ namespace Lets_Travel.Controllers
         {
             var cities = appDbContext.City.ToList();
             ViewBag.cities = cities;
+            
+            
             return View();
         }
        
