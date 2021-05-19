@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Lets_Travel.Controllers
 {
+    [Route("/flights")]
     public class FlightsController : Controller
     {
         private readonly IFlightsRepository flightsRepository;
@@ -19,6 +20,8 @@ namespace Lets_Travel.Controllers
             this.flightsRepository = flightsRepository;
             this.appDbContext = appDbContext;
         }
+        [HttpGet]
+        [Route("")]
         public IActionResult Flights()
         {
             var cities = appDbContext.City.ToList();

@@ -17,7 +17,7 @@ namespace Lets_TravelApi.Data
         public AppDTO LoginUser(Login model)
         {
             var response = new AppDTO();
-            var login = db.Users.FirstOrDefault(x => x.User_Id == model.UserId && x.Password == model.Password);
+            var login = db.Users.FirstOrDefault(x => x.Email_Id == model.UserId && x.Password == model.Password);
             if (login != null)
             {
                 response = new AppDTO()

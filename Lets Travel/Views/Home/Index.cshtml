@@ -282,3 +282,15 @@
         <a href="#" class="btn">View More</a>
     </section>
 </div>
+
+@section Scripts{
+    <script>
+        $(function () {
+            var successMsg = '@TempData["SuccessMsg"]'
+            if (successMsg != "") {
+                alertify.success(successMsg);
+            }
+        }
+        );
+    </script>
+            }

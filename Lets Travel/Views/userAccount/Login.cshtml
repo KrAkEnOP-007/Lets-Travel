@@ -3,10 +3,10 @@
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_User.cshtml";
     <style>
-        .LoginData{
-            position:relative;
-            width:100%;
-            padding:5%;
+        .LoginData {
+            position: relative;
+            width: 100%;
+            padding: 5%;
         }
     </style>
 }
@@ -17,19 +17,37 @@
         <table class="table table-borderless">
             <tr>
                 <td><label asp-for="Email" class="control-label"></label></td>
-                <td><input type="text" asp-for="Email" class="form-control" />
+                <td>
+                    <input type="text" asp-for="Email" class="form-control" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </td>
             </tr>
             <tr>
                 <td>Password</td>
-                <td><input type="password" asp-for="Password" class="form-control" />
+                <td>
+                    <input type="password" asp-for="Password" class="form-control" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </td>
             </tr>
             <tr>
+                @if (ViewBag.LoginError != null || ViewBag.LoginError != "")
+                {
+                    <p class="text-danger"> @ViewBag.LoginError </p>
+                }
                 <td colspan="2"><input type="submit" class="btn btn-secondary" /></td>
             </tr>
         </table>
     </form>
 </div>
+
+@section Scripts{
+    <script>
+        $(function () {
+            var successMsg = '@TempData["SuccessMsg"]'
+            if (successMsg != "") {
+                alertify.success(successMsg);
+            }
+        }
+        );
+    </script>
+}

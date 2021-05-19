@@ -13,7 +13,14 @@
 <div class="Signupbody">
     <form asp-action="SignUp">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      
         <table class="table table-borderless">
+            <thead>
+                @if ( ViewBag.LoginError != "")
+                {
+                    <p class="text-danger"> @ViewBag.LoginError</p>
+                }
+            </thead>
             <tr>
                 <td> <label asp-for="FirstName" class="control-label"></label></td>
                 <td>
@@ -26,6 +33,20 @@
                 <td>
                     <input asp-for="LastName" class="form-control" />
                     <span asp-validation-for="LastName" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>     <label asp-for="Mobile_No" class="control-label"></label> </td>
+                <td>
+                    <input asp-for="Mobile_No" class="form-control" />
+                    <span asp-validation-for="Mobile_No" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>     <label asp-for="UserId" class="control-label"></label> </td>
+                <td>
+                    <input asp-for="UserId" class="form-control" />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
                 </td>
             </tr>
             <tr>
