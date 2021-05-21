@@ -10,6 +10,8 @@ namespace Lets_Travel.Data
     {
         IEnumerable<Flights> GetAllFlights();
         IEnumerable<Flights> getSomeFlights(string FlightFrom, string FlightTo , string date);
+        Flights getFlightDetails(int id);
+
 
     }
 }

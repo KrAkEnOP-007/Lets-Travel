@@ -3,84 +3,111 @@
 @{
     ViewData["Title"] = "GetFlights";
     <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: aqua;
+        }
+
+        .main {
+            margin: 5px;
+            padding: 5px;
+            background-color: maroon;
+            min-width: 20%;
+            max-width: 25%;
+            display: flex;
+            flex-direction: column;
+            height: 17rem;
+            color: azure;
+            font-size: 1.3em;
+            border: 2px solid black;
+            justify-content: space-between;
+            border-radius: 5px;
+            text-shadow: 5px 5px black;
+        }
+
+        .part {
+            height: 4rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        #part2 {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #part2 {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #part3 {
+            justify-content: center;
+            align-items: flex-end;
+        }
+
         header {
             position: relative;
             background-color: rgba(0,0,0,0.7);
         }
+
+        .allFlights {
+            display: flex;
+            width: 90%;
+            margin: auto;
+            background-color: antiquewhite;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        .headerFlights{
+           display:flex;
+           justify-content:center;
+           color:blueviolet;
+           text-transform:uppercase;
+        }
     </style>
 }
+<div class="headerFlights">
+    <h2>all Flights Are Listed Below</h2>
+</div>
 
-<h1>GetFlights</h1>
+<div class="mainData">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FlightName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FlightFrom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FlightTo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FlightTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ORDINARYprice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BUSINESSprice)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@if (Model != null)
-{
-    foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FlightName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FlightFrom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FlightTo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FlightTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ORDINARYprice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BUSINESSprice)
-            </td>
-            <td>
-                <a asp-action="FlightDetails" asp-route-id="@item.FlightID">Details</a> 
-              
-            </td>
-        </tr>
-    }
-}
-            else
+    <div class="allFlights">
+        @if (Model != null)
+        {
+
+            foreach (var item in Model)
             {
-                <tr>
-                    <td>No Data Found</td>
-                </tr>
+                <div class="main">
+                    <div class="part">
+                        <span>Flight By :</span><br>
+                        <span>@item.FlightName</span>
+                    </div>
+                    <div class="part" id="part2">
+                        <span>@item.FlightFrom to @item.FlightTo </span><br>
+
+                        <span>Date : @item.Date</span><br>
+                        <span>Flight Time : @item.FlightTime</span><br>
+                    </div>
+                    <div class="part" id="part3">
+                        <a class="btn btn-primary" asp-controller="Flights" asp-action="FlightDetails" asp-route-id="@item.FlightID">Details</a>
+                    </div>
+                </div>
+
+
+
             }
-    </tbody>
-</table>
+
+        }
+
+        else
+        {
+
+            <p> No Data Found</p>
+
+        }
+    </div>
+</div>

@@ -36,6 +36,12 @@ namespace Lets_Travel.Models
 
         [Required]
         public int BUSINESSprice { get; set; }
+        
+        [Required]
+        public int OrdinaryTickets { get; set; }
+        
+        [Required]
+        public int BusinessTickets { get; set; }
 
     }
 }

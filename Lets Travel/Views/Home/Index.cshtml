@@ -286,11 +286,11 @@
 @section Scripts{
     <script>
         $(function () {
-            var successMsg = '@TempData["SuccessMsg"]'
-            if (successMsg != "") {
-                alertify.success(successMsg);
+            var msg = '@ViewBag.successMsg';
+            if (msg != "") {
+                alertify.success(msg);
             }
-        }
-        );
+          
+        });
     </script>
             }

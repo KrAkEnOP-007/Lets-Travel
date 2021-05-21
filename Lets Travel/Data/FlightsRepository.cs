@@ -20,6 +20,11 @@ namespace Lets_Travel.Data
             return flights;
         }
 
+        public Flights getFlightDetails(int id)
+        {
+            var flight = flightsDbContext.Flights.FirstOrDefault(x=> x.FlightID == id);
+            return flight;
+        }
 
         public IEnumerable<Flights> getSomeFlights(string FlightFrom, string FlightTo, string date)
         {

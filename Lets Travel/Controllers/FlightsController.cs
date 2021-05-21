@@ -21,7 +21,6 @@ namespace Lets_Travel.Controllers
             this.appDbContext = appDbContext;
         }
         [HttpGet]
-        [Route("")]
         public IActionResult Flights()
         {
             var cities = appDbContext.City.ToList();
@@ -44,9 +43,13 @@ namespace Lets_Travel.Controllers
 
             return View(null);
         }
-        public IActionResult FlightDetails()
+        [HttpGet]
+        [Route("FlightDetails")]
+        public IActionResult FlightDetails(int id)
         {
-            return View();
+            var flightDetails = flightsRepository.getFlightDetails(id);
+
+            return View(flightDetails);
         }
     }
 }

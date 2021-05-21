@@ -43,7 +43,7 @@ namespace Lets_Travel.Controllers
                     }
 
                     HttpContext.Session.SetString("UserId", result.User_Id);
-
+                    ViewBag.successMsg = "LoggedIn Successfully";
                     GlobalVariables.isLoggedIn = true;
                     GlobalVariables.SessionUserId = result.User_Id;
                     GlobalVariables._user = result;
@@ -67,6 +67,7 @@ namespace Lets_Travel.Controllers
             }
             return View();
         }
+        [HttpPost]
         public IActionResult LogOut()
         {
             GlobalVariables.isLoggedIn = false;
@@ -86,15 +87,23 @@ namespace Lets_Travel.Controllers
         {
             if (ModelState.IsValid)
             {
-                Register dto = new Register() { Email_Id = ul.Email, FirstName = ul.FirstName , LastName = ul.LastName , 
-                                     Mobile_No = ul.Mobile_No , Password = ul.Password , UserNo = 0 , User_Id = ul.UserId};
+                Register dto = new()
+                {
+                    Email_Id = ul.Email,
+                    FirstName = ul.FirstName,
+                    LastName = ul.LastName,
+                    Mobile_No = ul.Mobile_No ,
+                    Password = ul.Password ,
+                    UserNo = 0 ,
+                    User_Id = ul.UserId
+                };
                
                     HttpResponseMessage response = GlobalVariables.client.PostAsJsonAsync("/Register", dto).Result;
                     AppDTO result = response.Content.ReadAsAsync<AppDTO>().Result;
                     if (result.IsLoggedIn == false)
                     {
                         TempData["SuccessMsg"] = result.ErrotMsg;
-                        return View();
+                        return View(TempData);
                     }
                 
                 HttpContext.Session.SetString("UserId", result.User_Id);
@@ -105,7 +114,7 @@ namespace Lets_Travel.Controllers
                 
                 GlobalVariables._user = result;
 
-                TempData["SuccessMsg"] = "LoggedIn Successfully";
+                TempData["SuccessMsg"] = "Registered Successfully";
 
 
                 return View("~/Views/Home/Index.cshtml");

@@ -3,59 +3,65 @@
 @{
     ViewData["Title"] = "FlightDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    <style>
+        body{
+            background-color:white;
+        }
+        header {
+            position: relative;
+            background-color: rgba(0,0,0,0.7);
+        }
+        .masterDiv {
+            background-color: aliceblue;
+            max-width: 40%;
+            max-height: 65%;
+            margin: auto;
+            padding: 5px;
+            font-size:1.3em;
+            display:flex;
+            justify-content:space-evenly;
+            flex-direction:column;
+            border: 2px solid black;
+            border-radius:0.5em;
+            text-transform:uppercase;
+        }
+        .FlightData{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            
+        }
+        .tickets {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
 }
 
-<h1>FlightDetails</h1>
+<h1 style="color:blue;display:flex; justify-content:center;">FlightDetails</h1>
 
-<div>
-    <h4>Flights</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FlightName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FlightName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FlightFrom)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FlightFrom)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FlightTo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FlightTo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FlightTime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FlightTime)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ORDINARYprice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ORDINARYprice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BUSINESSprice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BUSINESSprice)
-        </dd>
-    </dl>
+<div class="masterDiv">
+        <div class="card-header " style="border-bottom:2px solid black;">
+                <span> Flight by : @Model.FlightName </span>
+        </div>
+        <div class="FlightData" style="border-bottom:2px solid black;">
+            <span>  Flight From : @Model.FlightFrom</span> <br />
+            <span>  Flight To : @Model.FlightTo</span>
+        </div>
+        <div class="FlightData" style="border-bottom:2px solid black;">
+            <span> Flight On Date : @Model.Date</span>
+            <span> Take Off Time : @Model.FlightTime</span>
+            <span> Ordinary Ticket Price : @Model.ORDINARYprice</span>
+            <span> Business class Ticket Price : @Model.BUSINESSprice</span>
+            <div class="tickets" style="border-top:2px solid black; display:flex;align-items:center;">
+                <h3> Avilable Tickets</h3>
+                <span>  Ordinary : @Model.OrdinaryTickets </span>
+                <span>  Business : @Model.BusinessTickets </span>
+            </div>
+        </div>
+        <div class="book">
+            <a class="btn btn-primary" asp-action="BookFlight">Book Flight</a>
+        </div>
 </div>
-<div>
-    |
-    <a asp-action="Index">Back to List</a>
-</div>
+

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "_User";
+    ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
     <style>
         body{
@@ -48,7 +48,9 @@
     </div>
 </div>
 
-@section scripts{
+@await RenderSectionAsync("Scripts",required : false) 
+
+@*@section scripts{
                 <script type="text/javascript">
                     let login = document.getElementById("login");
                     login.addEventListener('click', setActive());
@@ -59,4 +61,5 @@
                         signup.style.backgroundColor = "yellow";
                     }
                 </script>
-            }
+
+            }*@
