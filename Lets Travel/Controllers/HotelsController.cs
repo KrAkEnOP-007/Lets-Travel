@@ -31,5 +31,13 @@ namespace Lets_Travel.Controllers
             }
             return View(null);
         }
+        public IActionResult HotelDetails(int id)
+        {
+            return View();
+        }
+        public IActionResult BookHotel()
+        {
+            return View();
+        }
     }
 }

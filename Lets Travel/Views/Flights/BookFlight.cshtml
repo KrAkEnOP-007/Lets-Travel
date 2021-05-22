@@ -1,0 +1,38 @@
+﻿@model Lets_Travel.Models.FlightBookModel
+
+@{
+    ViewData["Title"] = "Book Flight";
+  <style>
+       .main {
+          background-color: aliceblue;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          width: 95%;
+          height: 80%;
+          margin: auto;
+      }
+      header {
+          position: relative;
+          background-color: rgba(0,0,0,0.7);
+      }
+  </style>
+}
+<div class="main">
+    <div class="BookFlightHeader">
+        <h2> Flight by @Model.Flight.FlightName from @Model.Flight.FlightFrom to @Model.Flight.FlightTo   </h2>
+    </div>
+    <div class="middleData" style="display:flex; justify-content:center; flex-direction:column;">
+        <h3> your Tickets are </h3>
+        <span>Ordinary = @Model.OrdinaryTickets</span><br />
+        <span>Business = @Model.BusinessTickets</span><br /><br />
+        <span>Total Price : @Model.TotalPrice</span>
+    </div>
+    <div class="Payment" style="display:flex;margin:10px;padding:10px;">
+        <form asp-action="TicketsPayment" style="display:flex;margin:10px;padding:10px;justify-content:center; flex-direction:column;">
+        <label >Enter Mobile No : </label>
+            <input type="number" maxlength="10" min="6000000000" max="9999999999" name="MobileNo" required/>
+            <button type="submit">Book Flight</button>
+        </form>
+    </div>
+</div>

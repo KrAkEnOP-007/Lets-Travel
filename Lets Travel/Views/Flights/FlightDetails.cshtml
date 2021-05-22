@@ -55,13 +55,20 @@
             <span> Ordinary Ticket Price : @Model.ORDINARYprice</span>
             <span> Business class Ticket Price : @Model.BUSINESSprice</span>
             <div class="tickets" style="border-top:2px solid black; display:flex;align-items:center;">
-                <h3> Avilable Tickets</h3>
-                <span>  Ordinary : @Model.OrdinaryTickets </span>
-                <span>  Business : @Model.BusinessTickets </span>
+                <form class="form " asp-controller="Flights" asp-action="BookFlight">
+                    <h3> Avilable Tickets</h3>
+                    <input type="hidden" name="flightId" value="@Model.FlightID" />
+                    <span>  Ordinary : @Model.OrdinaryTickets </span>
+                    <input type="number" name="ordinaryTickets" value="0" required />
+
+                    <span>  Business : @Model.BusinessTickets </span>
+                    <input type="number" name="businessTickets" value="0" required />
+                    <div class="book">
+                        <button type="submit" class="btn btn-primary">Book Flight</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="book">
-            <a class="btn btn-primary" asp-action="BookFlight">Book Flight</a>
-        </div>
+       
 </div>
 

@@ -51,5 +51,22 @@ namespace Lets_Travel.Controllers
 
             return View(flightDetails);
         }
+        [HttpPost][Route("BookFlight")]
+        public IActionResult BookFlight(int flightId, int ordinaryTickets, int businessTickets)
+        {
+            if (!GlobalVariables.isLoggedIn)
+            {
+                return View("../userAccount/Login");
+            }
+            var flight = flightsRepository.getFlightDetails(flightId);
+            FlightBookModel fbm = new FlightBookModel()
+            {
+                Flight = flight,
+                BusinessTickets = businessTickets,
+                OrdinaryTickets = ordinaryTickets,
+                TotalPrice = (flight.ORDINARYprice * ordinaryTickets) + ( businessTickets * flight.BUSINESSprice)
+            };
+            return View(fbm);
+        }
     }
 }
