@@ -20,10 +20,16 @@ namespace Lets_Travel.Data
             return hotels;
         }
 
-        public IEnumerable<Hotel> GetCityHotels(GetHotels hotel)
+        public IEnumerable<Hotel> GetHotelsByCity(GetHotels hotel)
         {
-            IEnumerable<Hotel> hotels = flightsDbContext.Hotels.Where(x => x.City == hotel.City);
+            IEnumerable<Hotel> hotels = flightsDbContext.Hotels.Where(x => x.City == hotel.City.ToLower());
             return hotels;
+        }
+
+        public Hotel GetHotelsById(int id)
+        {
+            var hotel = flightsDbContext.Hotels.FirstOrDefault(x => x.HotelId == id);
+            return hotel;
         }
     }
 }

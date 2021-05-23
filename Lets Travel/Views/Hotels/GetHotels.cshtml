@@ -3,17 +3,59 @@
 @{
     ViewData["Title"] = "GetHotels";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    <style>
+        body {
+            background-color: white;
+        }
+
+        header {
+            position: relative;
+        }
+        .main{
+            background-color:aliceblue;
+            margin:5px;
+            padding:0.7em;
+            display:flex;
+            justify-content:space-between;
+        }
+        .AllHotels {
+            background-color: honeydew;
+            width: 90%;
+            margin: 2em;
+            padding: 0.5em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(0,0,0,0.7);
+            border-radius:15px;
+        }
+    </style>
 }
 
 
 <div class="main">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div class="AllHotels">
+                <div class="top">
+                    <div class="HotelName">
+                        <span>Hotel Name : @item.HotelName</span>
+                    </div>
+                </div>
 
-    <div class="AllHotels">
-        <div class="top"></div>
-        <div class="mid"></div>
-        <div class="foot"></div>
-    </div>    
+                <div class="mid">
+                    <span>City : @item.City</span> <br />
+                    <span>Address : @item.HotelAddress</span>
+                </div>
 
+                <div class="foot">
+                    <a class="btn btn-primary" asp-controller="Hotels" asp-action="BookHotel" asp-route-id="@item.HotelId">More Details</a>
+                </div>
 
+            </div>
 
+        }
+    }
 </div>

@@ -47,7 +47,7 @@
             <h1>Search Hotels</h1>
         </div>
         <div class="SearchData">
-            <form asp-action="GetHotels" >
+            <form asp-controller="Hotels" asp-action="GetHotels" >
                 <div asp-validation-summary="ModelOnly"></div>
                 <table class="Datatable table table-borderless table-active table-dark border-primary">
                     <tr>

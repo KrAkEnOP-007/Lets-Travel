@@ -1,0 +1,53 @@
+﻿@model Lets_Travel.Models.Hotel
+
+@{
+    ViewData["Title"] = "Book Hotel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <style>
+        body {
+            background-color: white;
+        }
+
+        header {
+            position: relative;
+        }
+    </style>
+}
+
+
+<div class="main">
+
+    <div class="AllHotels">
+        <div class="top">
+            <div class="HotelName">
+                <span>@Model.HotelName</span>
+            </div>
+            <div class="pictures">
+                <img src="" class="Picture" />
+                <img src="" class="Picture" />
+                <img src="" class="Picture" />
+                <img src="" class="Picture" />
+            </div>
+        </div>
+        <div class="mid">
+            <div class="HotelInfo">
+                <span>@Model.City</span>
+                <span>@Model.HotelAddress</span>
+                <span>@Model.Hotel_Room_Features</span>
+                <span>@Model.Hotel_Additional_Features</span>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="BookHotel">
+                <form class="bookingForm" asp-action="BookHotel">
+                    <label> Rooms</label>
+                    <input type="number" name="Rooms" class="form-control" /><br />
+                    <button type="submit" class="btn btn-primary">BOOK</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

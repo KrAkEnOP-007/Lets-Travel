@@ -26,16 +26,19 @@ namespace Lets_Travel.Controllers
         {
             if (ModelState.IsValid)
             {
-                var hotels= repository.GetAllHotels();
-                return View();
+                var hotels= repository.GetHotelsByCity(getHotels);
+                return View(hotels);
             }
             return View(null);
         }
-        public IActionResult HotelDetails(int id)
+        [HttpGet]
+        public IActionResult BookHotel(int id)
         {
-            return View();
+            var hotel = repository.GetHotelsById(id);
+            return View(hotel);
         }
-        public IActionResult BookHotel()
+        [HttpPost]
+        public IActionResult BookHotel(int rooms , int singleBed , int DoubleBed)
         {
             return View();
         }

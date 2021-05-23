@@ -9,7 +9,8 @@ namespace Lets_Travel.Data
     public interface IHotelsRepository
     {
         IEnumerable<Hotel> GetAllHotels();
-        IEnumerable<Hotel> GetCityHotels(GetHotels hotel);
+        IEnumerable<Hotel> GetHotelsByCity(GetHotels hotel);
+        Hotel GetHotelsById(int id);
 
     }
 }
