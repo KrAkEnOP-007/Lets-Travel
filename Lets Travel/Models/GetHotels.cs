@@ -11,16 +11,13 @@ namespace Lets_Travel.Models
         [Required(ErrorMessage ="Please Select City")]
         public string City { get; set; }
         
-        [Required(ErrorMessage ="Please Select Total Peoples")]
-        public DateTime CheckIn { get; set; }
         
-        [Required(ErrorMessage ="Select Date")]
-        [DataType(DataType.Date)]
-        public DateTime CheckOut { get; set; }
+        public DateTime? CheckIn { get; set; }
         
-        [Required(ErrorMessage ="select Check In")]
-        [DataType(DataType.Date)]
-        public int TotalPersons { get; set; }
+       
+        public DateTime? CheckOut { get; set; }
+        
+        public int? TotalPersons { get; set; }
 
     }
 }

@@ -53,10 +53,10 @@ namespace Lets_Travel.Controllers
                     ViewBag.LoginError = ex.Data.ToString();
                     return View();
                 }
-                
-                
-                
-                
+
+
+
+
                 //Login lgn = new Login() { UserId = ul.Email , Password = ul.Password };
                 // ViewBag.user = ul.Email;
                 // @Context.Session.GetString("username")
@@ -64,6 +64,8 @@ namespace Lets_Travel.Controllers
                 //ViewBag.user = HttpContext.Session.GetString("UserId");
                 //return RedirectToPage("index");
                 return View("~/Views/Home/Index.cshtml");
+
+
             }
             return View();
         }

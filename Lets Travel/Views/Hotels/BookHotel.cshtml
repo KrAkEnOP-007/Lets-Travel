@@ -5,11 +5,26 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     <style>
         body {
-            background-color: white;
+            background-color: brown;
         }
 
         header {
             position: relative;
+        }
+        .main{
+            width:60%;
+            height:auto;
+            margin:auto;
+            background-color:darkslateblue;
+            color:white;
+            border: 2px solid black;
+            padding:10px;
+            letter-spacing:1px;
+        }
+        .main div{
+            display:flex;
+            justify-content:center;
+            flex-direction:column;
         }
     </style>
 }
@@ -31,17 +46,37 @@
         </div>
         <div class="mid">
             <div class="HotelInfo">
-                <span>@Model.City</span>
-                <span>@Model.HotelAddress</span>
-                <span>@Model.Hotel_Room_Features</span>
-                <span>@Model.Hotel_Additional_Features</span>
+                <p>CITY                        :  @Model.City</p>
+                <p>ADDRESS                     :  @Model.HotelAddress</p>
+                <p>ROOM FEATURES               :  @Model.Hotel_Room_Features</p>
+                <p>HOTEL ADDITIONAL FEATURES   :  @Model.Hotel_Additional_Features</p>
             </div>
         </div>
         <div class="foot">
             <div class="BookHotel">
-                <form class="bookingForm" asp-action="BookHotel">
-                    <label> Rooms</label>
-                    <input type="number" name="Rooms" class="form-control" /><br />
+                <form class="bookingForm" asp-controller="Hotels" asp-action="BookHotel">
+                    <label> Rooms</label><br />
+                    <input type="hidden" name="Id" value="@Model.HotelId" />
+
+                    <label>SingleBed</label>
+                    <input type="number" name="SingleBed" class="form-control" required max="5" /><br />
+                    @if (ViewBag.SingleBedError != null)
+                    {
+                        <label class="text-danger">@ViewBag.SingleBedError</label>
+                    }
+
+                    <label>DoubleBed</label>
+                    <input type="number" name="DoubleBed" class="form-control" required max="5" /><br />
+                    @if (ViewBag.DoubleBedError != null)
+                    {
+                        <label class="text-danger">@ViewBag.SingleBedError</label>
+                    }
+
+                    <input type="date" name="CheckIn" class="form-control" required />
+                    @if (ViewBag.dateerror != null)
+                    {
+                        <label class="text-danger">@ViewBag.dateerror</label>
+                    }
                     <button type="submit" class="btn btn-primary">BOOK</button>
                 </form>
             </div>

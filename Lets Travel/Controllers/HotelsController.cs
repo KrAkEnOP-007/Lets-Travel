@@ -37,10 +37,38 @@ namespace Lets_Travel.Controllers
             var hotel = repository.GetHotelsById(id);
             return View(hotel);
         }
+
         [HttpPost]
-        public IActionResult BookHotel(int rooms , int singleBed , int DoubleBed)
+        public IActionResult BookHotel(int Id , int SingleBed , int DoubleBed , DateTime CheckIn )
         {
-            return View();
+            if (!GlobalVariables.isLoggedIn)
+            {
+                return View("../userAccount/Login");
+            }
+
+            if(SingleBed > 10)
+            {
+                ViewBag.SingleBedError = "You can not select this many rooms .....!!!!";
+            }
+            if(DoubleBed > 10)
+            {
+                ViewBag.DoubleBedError = "You can not select this many rooms .....!!!!";
+            }
+
+
+
+            if(CheckIn < System.DateTime.Now)
+            {
+                ViewBag.dateerror = "Please select a valid date.....!!!!";
+                return View();
+            }
+
+
+
+
+
+
+            return View("~/Views/Home/Index.cshtml");
         }
     }
 }
