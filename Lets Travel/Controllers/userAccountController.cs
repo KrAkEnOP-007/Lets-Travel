@@ -50,7 +50,7 @@ namespace Lets_Travel.Controllers
                 }
                 catch(Exception ex)
                 {
-                    ViewBag.LoginError = ex.Data.ToString();
+                    ViewBag.LoginError = "There Was An Error Try Again!!!";
                     return View();
                 }
 

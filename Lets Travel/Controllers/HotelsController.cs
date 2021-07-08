@@ -46,7 +46,7 @@ namespace Lets_Travel.Controllers
                 return View("../userAccount/Login");
             }
 
-            if(SingleBed > 10)
+         /*   if(SingleBed > 10)
             {
                 ViewBag.SingleBedError = "You can not select this many rooms .....!!!!";
             }
@@ -54,7 +54,7 @@ namespace Lets_Travel.Controllers
             {
                 ViewBag.DoubleBedError = "You can not select this many rooms .....!!!!";
             }
-
+*/
 
 
             if(CheckIn < System.DateTime.Now)

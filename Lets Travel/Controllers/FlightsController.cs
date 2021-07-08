@@ -58,6 +58,7 @@ namespace Lets_Travel.Controllers
             {
                 return View("../userAccount/Login");
             }
+            /*if (ordinaryTickets == 0 && businessTickets == 0) return ;*/
             var flight = flightsRepository.getFlightDetails(flightId);
             FlightBookModel fbm = new FlightBookModel()
             {
@@ -67,6 +68,10 @@ namespace Lets_Travel.Controllers
                 TotalPrice = (flight.ORDINARYprice * ordinaryTickets) + ( businessTickets * flight.BUSINESSprice)
             };
             return View(fbm);
+        }
+        public IActionResult TicketsPayment()
+        {
+            return Redirect("~/Views/Home/Index.cshtml");
         }
     }
 }

@@ -7,6 +7,7 @@
             position:relative;
             padding:5%;
         }
+   
     </style>
 }
 
@@ -38,7 +39,7 @@
             <tr>
                 <td>     <label asp-for="Mobile_No" class="control-label"></label> </td>
                 <td>
-                    <input asp-for="Mobile_No" class="form-control" />
+                    <input asp-for="Mobile_No" type="number" max="9999999999" min="6111111111" class="form-control" />
                     <span asp-validation-for="Mobile_No" class="text-danger"></span>
                 </td>
             </tr>

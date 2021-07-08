@@ -59,16 +59,33 @@
                     <h3> Avilable Tickets</h3>
                     <input type="hidden" name="flightId" value="@Model.FlightID" />
                     <span>  Ordinary : @Model.OrdinaryTickets </span>
-                    <input type="number" name="ordinaryTickets" value="0" required />
-
+                    <input type="number" name="ordinaryTickets" class="form-control" id="ordtct" min="0" max="2" required />
+                    <br /> 
                     <span>  Business : @Model.BusinessTickets </span>
-                    <input type="number" name="businessTickets" value="0" required />
+                    <input type="number" name="businessTickets" class="form-control" id="bustct" min="0" max="2" required />
                     <div class="book">
-                        <button type="submit" class="btn btn-primary">Book Flight</button>
+                        <button type="submit" onclick="click()" id="buttn" class="btn btn-primary">Book Flight</button>
                     </div>
                 </form>
             </div>
         </div>
-       
+       <script>
+           let a = document.getElementById('ordtct');
+           let b = document.getElementById('bustct');
+           let c = document.getElementById('buttn');
+           document.getElementsByTagName('form').addEventListener("submit", click());
+           function click() {
+               if (a.innerText == 0 && b.innerText == 0) {
+                   error("please select minimum 1 ticket");
+                   return false;
+               }
+               else if (a.innerText > 0 || b.innerText > 0) {
+                   return true;
+               }
+               else {
+                   return false;
+               }
+           };
+       </script>
 </div>
 
